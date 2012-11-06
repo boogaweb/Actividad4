@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
-#import "MasterViewController.h"
+#import "RootViewController.h"
+#import "WebViewController.h"
 
 @implementation AppDelegate
 
@@ -27,8 +27,11 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
 
-    MasterViewController *masterViewController = [[[MasterViewController alloc] initWithNibName:@"MasterViewController" bundle:nil] autorelease];
-    self.navigationController = [[[UINavigationController alloc] initWithRootViewController:masterViewController] autorelease];
+    RootViewController *rootViewController = [[[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil] autorelease];
+    //Lo siguiente lo que hace es incluir la vista que acabamos de declarar (rootViewController) en nuestra barra de 
+    //navegación (navigationController)
+    //
+    self.navigationController = [[[UINavigationController alloc] initWithRootViewController:rootViewController] autorelease];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;

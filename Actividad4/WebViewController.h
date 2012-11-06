@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WebViewController : UIViewController
+@interface WebViewController : UIViewController{
+
+    UIWebView *webView;
+    NSURL *cargarURL;
+
+}
+
+@property(nonatomic,retain) IBOutlet UIWebView *webView;
+@property(nonatomic,retain) NSURL *cargarURL;
+
+- (IBAction) info;
 
 @end

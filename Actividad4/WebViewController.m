@@ -10,6 +10,9 @@
 
 @implementation WebViewController
 
+@synthesize webView;
+@synthesize cargarURL;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -17,6 +20,12 @@
         // Custom initialization
     }
     return self;
+}
+
+- (IBAction) info {
+    
+    [self dismissModalViewControllerAnimated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,6 +42,20 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    NSURLRequest *urlSolicitada = [NSURLRequest requestWithURL:self.cargarURL];
+                                   
+    [self.webView loadRequest:urlSolicitada];
+}
+
+- (void) dealloc {
+    
+    [webView release];
+    
+    [cargarURL release];
+    
+    [super dealloc];
+
 }
 
 - (void)viewDidUnload
